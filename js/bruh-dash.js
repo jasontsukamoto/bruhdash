@@ -2,7 +2,7 @@ var global = window || GLOBAL;
 
 global.bruhdash = {
   chunk: function(){
-
+    _.chunk(['a', 'b', 'c', 'd'], 1);
   },
 
   compact: function() {
@@ -26,7 +26,7 @@ global.bruhdash = {
   },
 
   first: function () {
-      
+
   },
 
   indexOf: function () {

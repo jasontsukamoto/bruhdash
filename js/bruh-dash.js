@@ -1,42 +1,41 @@
 var global = window || GLOBAL;
 
 global.bruhdash = {
-  chunk: function(array, size){
-     var chunky = [];
-    for(var i=0; i<array.length; i+=size) {
-        chunky.push(array.slice(i, size+i));
+  chunk: function(array, size) {
+    var chunky = [];
+    for (var i = 0; i < array.length; i += size) {
+      chunky.push(array.slice(i, size + i));
     }
     return chunky;
-},
-
+  },
 
   compact: function(array) {
     var newArray = [];
-     for(var i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       if (array[i]) {
         newArray.push(array[i]);
       }
-     }
+    }
     return newArray;
   },
 
   difference: function(array, args) {
     var newArray = [];
-    for(var i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       var found = false;
-      for(var j = 1; j < arguments.length; j++) {
-        if(array[i] === arguments[j]) {
+      for (var j = 1; j < arguments.length; j++) {
+        if (array[i] === arguments[j]) {
           found = true;
         }
       }
-      if(found === false) {
+      if (found === false) {
         newArray.push(array[i]);
       }
     }
     return newArray;
   },
 
-  drop: function(array, n){
+  drop: function(array, n) {
     array.splice(0, n);
     return array;
 
@@ -48,7 +47,7 @@ global.bruhdash = {
       array.pop();
       i++;
     }
-    while(i < n);
+    while (i < n);
     return array;
   },
 
@@ -58,10 +57,10 @@ global.bruhdash = {
       array.splice(start, stop - 1, value);
       return array;
     } else {
-      for(var i = 0; i < array.length; i++) {
+      for (var i = 0; i < array.length; i++) {
         newArray.push(value);
       }
-    return newArray;
+      return newArray;
     }
   },
 
@@ -69,12 +68,22 @@ global.bruhdash = {
     return array[0];
   },
 
-  indexOf: function () {
-
+  indexOf: function (array, num, start) {
+    var j;
+    for (var i = 0; i < array.length; i++) {
+      if (start !== undefined) {
+        j = i + start;
+        if (array[j] === num) {
+          return j;
+        }
+      } else if (array[i] === num) {
+        return i;
+      }
+    }
   },
 
   initial: function (array) {
-    return array.slice(0, array.length-1);
+    return array.slice(0, array.length - 1);
   },
 
   last: function (array) {
@@ -82,8 +91,18 @@ global.bruhdash = {
     return array[i];
   },
 
-  lastIndexof: function () {
-
+  lastIndexOf: function (array, num, start) {
+    var j;
+    for (var i = array.length; i > 0; i--) {
+      if (start !== undefined) {
+        j = i - start;
+        if (array[j] === num) {
+          return j;
+        }
+      } else if (array[i] === num) {
+        return i;
+      }
+    }
   },
 
   pull: function (array, args) {
@@ -91,11 +110,11 @@ global.bruhdash = {
     for (var i = 0; i < array.length; i++) {
       var found = false;
       for (var j = 1; j < arguments.length; j++) {
-        if(array[i] === arguments[j]) {
+        if (array[i] === arguments[j]) {
           found = true;
         }
       }
-      if(found === false) {
+      if (found === false) {
         newArray.push(array[i]);
       }
     }
@@ -123,7 +142,7 @@ global.bruhdash = {
 
   takeRight: function (array, number) {
     if (number === undefined) {
-      return array.slice(array.length-1);
+      return array.slice(array.length - 1);
     } else if (number === 0) {
       return array.slice(array.length);
     } else {
@@ -141,14 +160,14 @@ global.bruhdash = {
 
   without: function(array, args) {
     var newArray = [];
-    for(var i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       var found = false;
       for (j = 1; j < arguments.length; j++) {
-        if(array[i] === arguments[j]) {
+        if (array[i] === arguments[j]) {
           found = true;
         }
       }
-      if(found === false) {
+      if (found === false) {
         newArray.push(array[i]);
       }
     }

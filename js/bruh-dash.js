@@ -1,72 +1,134 @@
 var global = window || GLOBAL;
 
 global.bruhdash = {
-  chunk: function(){
-    _.chunk(['a', 'b', 'c', 'd'], 1);
+  chunk: function(array, size){
+     var chunky = [];
+    for(var i=0; i<array.length; i+=size) {
+        chunky.push(array.slice(i, size+i));
+    }
+    return chunky;
+},
+
+
+  compact: function(array) {
+    var newArray = [];
+     for(var i = 0; i < array.length; i++) {
+      if (array[i]) {
+        newArray.push(array[i]);
+      }
+     }
+    return newArray;
   },
 
-  compact: function() {
+  difference: function(array, args) {
+    var newArray = [];
+    for(var i = 0; i < array.length; i++) {
+      var found = false;
+      for(var j = 1; j < arguments.length; j++) {
+        if(array[i] === arguments[j]) {
+          found = true;
+        }
+      }
+      if(found === false) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
+  },
+
+  drop: function(array, n){
+    array.splice(0, n);
+    return array;
 
   },
 
-  difference: function() {
-
+  dropRight: function(array, n) {
+    var i = 0;
+    do {
+      array.pop();
+      i++;
+    }
+    while(i < n);
+    return array;
   },
 
-  drop: function(){
-
+  fill: function(array, value, start, stop) {
+    var newArray = [];
+    if (arguments.length > 2) {
+      array.splice(start, stop - 1, value);
+      return array;
+    } else {
+      for(var i = 0; i < array.length; i++) {
+        newArray.push(value);
+      }
+    return newArray;
+    }
   },
 
-  dropRight: function() {
-
-  },
-
-  fill: function() {
-
-  },
-
-  first: function () {
-
+  first: function (array) {
+    return array[0];
   },
 
   indexOf: function () {
 
   },
 
-  inital: function () {
-
+  initial: function (array) {
+    return array.slice(0, array.length-1);
   },
 
-  last: function () {
-
+  last: function (array) {
+    var i = array.length - 1;
+    return array[i];
   },
 
   lastIndexof: function () {
 
   },
 
-  pull: function () {
-
+  pull: function (array, args) {
+    var newArray = [];
+    for (var i = 0; i < array.length; i++) {
+      var found = false;
+      for (var j = 1; j < arguments.length; j++) {
+        if(array[i] === arguments[j]) {
+          found = true;
+        }
+      }
+      if(found === false) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
   },
 
-  pullAt: function () {
-
+  pullAt: function (array, args) {
+    return array.slice(arguments[1], arguments[2]);
   },
 
-  rest: function () {
-
+  rest: function (array) {
+    return array.slice(1, array.length);
   },
 
-  slice: function () {
-
+  slice: function (array, startNum,  endNum) {
+    return array.slice(startNum, endNum);
   },
 
-  take: function () {
-
+  take: function (array, number) {
+    if (number === undefined) {
+      number = 1;
+    }
+    return array.slice(0, number);
   },
 
-  takeRight: function () {
-
+  takeRight: function (array, number) {
+    if (number === undefined) {
+      return array.slice(array.length-1);
+    } else if (number === 0) {
+      return array.slice(array.length);
+    } else {
+      return array.slice(-number);
+    }
   },
 
   zip: function () {
@@ -77,7 +139,19 @@ global.bruhdash = {
 
   },
 
-  without: function() {
-
+  without: function(array, args) {
+    var newArray = [];
+    for(var i = 0; i < array.length; i++) {
+      var found = false;
+      for (j = 1; j < arguments.length; j++) {
+        if(array[i] === arguments[j]) {
+          found = true;
+        }
+      }
+      if(found === false) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
   }
 };

@@ -150,12 +150,30 @@ global.bruhdash = {
     }
   },
 
-  zip: function () {
-
+  zip: function (arrays) {
+    var tempArray = [];
+    var finalArray = [];
+    for (var i = 0; i < arguments[0].length; i++) {
+      tempArray = [];
+      for (var j = 0; j < arguments.length; j++) {
+        tempArray.push(arguments[j][i]);
+      }
+      finalArray.push(tempArray);
+    }
+    return finalArray;
   },
 
-  unzip: function () {
-
+  unzip: function (array) {
+    var tempArray = [];
+    var finalArray = [];
+    for (var i = 0; i < arguments[0].length; i++) {
+      tempArray = [];
+      for (var j = 0; j < arguments.length; j++) {
+        tempArray.push(arguments[j][i]);
+      }
+      finalArray.push(tempArray);
+    }
+    return finalArray;
   },
 
   without: function(array, args) {

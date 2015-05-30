@@ -113,20 +113,16 @@ global.bruhdash = {
     }
   },
 
-  pull: function (array, args) {
-    var newArray = [];
+  pull: function (array) {
     for (var i = 0; i < array.length; i++) {
-      var found = false;
       for (var j = 1; j < arguments.length; j++) {
         if (array[i] === arguments[j]) {
-          found = true;
+          array.splice(i, 1);
+          i--;
         }
       }
-      if (found === false) {
-        newArray.push(array[i]);
-      }
     }
-    return newArray;
+    return array;
   },
 
   pullAt: function (array, args) {

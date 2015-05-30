@@ -36,7 +36,12 @@ global.bruhdash = {
   },
 
   drop: function(array, n) {
-    array.splice(0, n);
+    if (n === undefined) {
+      array.shift();
+      return array;
+    } else {
+      array.splice(0, n);
+    }
     return array;
 
   },

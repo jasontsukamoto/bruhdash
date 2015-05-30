@@ -23,8 +23,8 @@ global.bruhdash = {
     var newArray = [];
     for (var i = 0; i < array.length; i++) {
       var found = false;
-      for (var j = 1; j < arguments.length; j++) {
-        if (array[i] === arguments[j]) {
+      for (var j = 0; j < arguments[1].length; j++) {
+        if (array[i] === arguments[1][j]) {
           found = true;
         }
       }

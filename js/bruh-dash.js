@@ -170,9 +170,9 @@ global.bruhdash = {
   unzip: function (array) {
     var tempArray = [];
     var finalArray = [];
-    for (var i = 0; i < arguments[0].length; i++) {
+    for (var i = 0; i < array.length; i++) {
       tempArray = [];
-      for (var j = 0; j < arguments.length; j++) {
+      for (var j = 0; j < array.length; j++) {
         tempArray.push(arguments[j][i]);
       }
       finalArray.push(tempArray);

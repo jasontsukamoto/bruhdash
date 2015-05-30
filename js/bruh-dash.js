@@ -43,16 +43,19 @@ global.bruhdash = {
       array.splice(0, n);
     }
     return array;
-
   },
 
   dropRight: function(array, n) {
     var i = 0;
-    do {
+    if (n === undefined) {
       array.pop();
-      i++;
+      return array;
+    } else {
+      while (i < n) {
+        array.pop();
+        i++;
+      }
     }
-    while (i < n);
     return array;
   },
 

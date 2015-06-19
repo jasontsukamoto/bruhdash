@@ -1,7 +1,7 @@
 var global = window || GLOBAL;
 
 global.bruhdash = {
-  chunk: function(array, size) {
+  chunk : function(array, size) {
     var chunky = [];
     for (var i = 0; i < array.length; i += size) {
       chunky.push(array.slice(i, size + i));
@@ -9,7 +9,7 @@ global.bruhdash = {
     return chunky;
   },
 
-  compact: function(array) {
+  compact : function(array) {
     var newArray = [];
     for (var i = 0; i < array.length; i++) {
       if (array[i]) {
@@ -19,7 +19,7 @@ global.bruhdash = {
     return newArray;
   },
 
-  difference: function(array, args) {
+  difference : function(array, args) {
     var newArray = [];
     for (var i = 0; i < array.length; i++) {
       var found = false;
@@ -35,7 +35,7 @@ global.bruhdash = {
     return newArray;
   },
 
-  drop: function(array, n) {
+  drop : function(array, n) {
     if (n === undefined) {
       array.shift();
       return array;
@@ -45,7 +45,7 @@ global.bruhdash = {
     return array;
   },
 
-  dropRight: function(array, n) {
+  dropRight : function(array, n) {
     var i = 0;
     if (n === undefined) {
       array.pop();
@@ -59,7 +59,7 @@ global.bruhdash = {
     return array;
   },
 
-  fill: function(array, value, start, stop) {
+  fill : function(array, value, start, stop) {
     var newArray = [];
     if (arguments.length > 2) {
       array.splice(start, stop - 1, value);
@@ -72,11 +72,11 @@ global.bruhdash = {
     }
   },
 
-  first: function (array) {
+  first : function (array) {
     return array[0];
   },
 
-  indexOf: function (array, num, start) {
+  indexOf : function (array, num, start) {
     var j;
     for (var i = 0; i < array.length; i++) {
       if (start !== undefined) {
@@ -90,16 +90,16 @@ global.bruhdash = {
     }
   },
 
-  initial: function (array) {
+  initial : function (array) {
     return array.slice(0, array.length - 1);
   },
 
-  last: function (array) {
+  last : function (array) {
     var i = array.length - 1;
     return array[i];
   },
 
-  lastIndexOf: function (array, num, start) {
+  lastIndexOf : function (array, num, start) {
     var j;
     for (var i = array.length; i > 0; i--) {
       if (start !== undefined) {
@@ -113,7 +113,7 @@ global.bruhdash = {
     }
   },
 
-  pull: function (array) {
+  pull : function (array) {
     for (var i = 0; i < array.length; i++) {
       for (var j = 1; j < arguments.length; j++) {
         if (array[i] === arguments[j]) {
@@ -125,26 +125,26 @@ global.bruhdash = {
     return array;
   },
 
-  pullAt: function (array, args) {
+  pullAt : function (array, args) {
     return array.slice(arguments[1], arguments[2]);
   },
 
-  rest: function (array) {
+  rest : function (array) {
     return array.slice(1, array.length);
   },
 
-  slice: function (array, startNum,  endNum) {
+  slice : function (array, startNum,  endNum) {
     return array.slice(startNum, endNum);
   },
 
-  take: function (array, number) {
+  take : function (array, number) {
     if (number === undefined) {
       number = 1;
     }
     return array.slice(0, number);
   },
 
-  takeRight: function (array, number) {
+  takeRight : function (array, number) {
     if (number === undefined) {
       return array.slice(array.length - 1);
     } else if (number === 0) {
@@ -154,7 +154,7 @@ global.bruhdash = {
     }
   },
 
-  zip: function (arrays) {
+  zip : function (arrays) {
     var tempArray = [];
     var finalArray = [];
     for (var i = 0; i < arguments[0].length; i++) {
@@ -167,7 +167,7 @@ global.bruhdash = {
     return finalArray;
   },
 
-  unzip: function (array) {
+  unzip : function (array) {
     var tempArray = [];
     var finalArray = [];
     for (var i = 0; i < array.length; i++) {
@@ -180,7 +180,7 @@ global.bruhdash = {
     return finalArray;
   },
 
-  without: function(array, args) {
+  without : function(array, args) {
     var newArray = [];
     for (var i = 0; i < array.length; i++) {
       var found = false;
